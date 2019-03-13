@@ -15,7 +15,7 @@ app.use(compress());
 app.use(
   '/pictures',
   proxy({
-    target: 'http://localhost:3001',
+    target: 'http://ec2-54-219-159-237.us-west-1.compute.amazonaws.com',
     changeOrigin: true
   })
 );
@@ -23,5 +23,5 @@ app.use(
 app.use(express.static(__dirname + '/public'));
 
 app.listen(port, () => {
-  console.log(`I'm serving from http://localhost:${port}`);
+  console.log(`I'm serving from port ${port}`);
 });
