@@ -20,6 +20,30 @@ app.use(
   })
 );
 
+app.use(
+  '/api/amenities',
+  proxy({
+    target: 'http://ec2-3-82-148-29.compute-1.amazonaws.com',
+    changeOrigin: true
+  })
+);
+
+app.use(
+  '/api/bookingInfo',
+  proxy({
+    target: 'http://ec2-54-245-154-37.us-west-2.compute.amazonaws.com',
+    changeOrigin: true
+  })
+);
+
+app.use(
+  '/api/reviews',
+  proxy({
+    target: 'http://ec2-13-57-34-80.us-west-1.compute.amazonaws.com',
+    changeOrigin: true
+  })
+)
+
 app.use(express.static(__dirname + '/public'));
 
 app.listen(port, () => {
